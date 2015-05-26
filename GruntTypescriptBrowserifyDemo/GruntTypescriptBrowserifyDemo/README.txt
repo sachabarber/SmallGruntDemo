@@ -22,9 +22,5 @@ npm install jquery --save-dev
 
 
 
-TODO :
-
-
-Add grunt watch as shown here http://codeofrob.com/entries/grunt+browserify+npm+application=success.html
 
 

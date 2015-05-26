@@ -7,4 +7,4 @@ var Foo = (function () {
     return Foo;
 })();
 module.exports = Foo;
-//# sourceMappingURL=foo.js.map
+//# sourceMappingURL=Foo.js.map

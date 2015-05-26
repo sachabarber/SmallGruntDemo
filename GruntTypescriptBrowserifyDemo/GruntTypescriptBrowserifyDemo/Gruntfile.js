@@ -10,10 +10,15 @@
 
 
 
-    //TODO
-    //1. use the grunt-contrib-watch
-
-
+    //INSTRUCTIONS
+	//1. Install Node.js
+	//2. From Node.js command line run this command "npm install -g grunt"
+	//3. From Node.js command line run this command "npm install -g grunt-cli"
+	//3. From Node.js command line, Change to directory which has package.json in it, 
+	//   and run the following command lines 
+	//   a) "npm install"
+	//   b) "grunt watch"
+ 
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -37,7 +42,7 @@
                 sourceMap: true
             },
             index: {
-                src: ['./src/index.ts'],
+                src: ['./src/**/*.ts'],
                 outDir: './tmp'
             }
         },
@@ -50,21 +55,29 @@
 
         // Minify 
         uglify: {
-            //options: {
-            //    mangle: {
-            //        except: ['$', 'require', 'exports'],
-            //    }
-            //},
             my_target: {
                 options: {
-                    sourceMap: true,
-                    sourceMapName: 'path/to/sourcemap.map'
+                    sourceMap: 'dist/<%= pkg.name %>.map',
+                    sourceMapRoot: '..',
+                    sourceMappingURL: '<%= pkg.name %>.map'
                 },
                 files: {
                     './dist/app.js': ['./dist/app.js']
                 }
             }
-        }
+        },
+		
+		
+		// Watch 
+        watch: {
+		  scripts: {
+			files: ['./src/**/*.ts'],
+			tasks: ['dev'],
+			options: {
+			  event: ['all']
+			}
+		  }
+		}
 
 
     });
